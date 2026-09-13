@@ -1,0 +1,6 @@
+{
+  "name": "Pathway",
+  "description": "Your degree. Your skills. Your next step. AI-powered academic and career planning for university students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

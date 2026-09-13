@@ -159,9 +159,9 @@ export const Sidebar: React.FC<{ isOpenMobile: boolean; setIsOpenMobile: (open: 
         </nav>
 
         {/* Footer info */}
-        <div className="p-2 border-t border-[#1b3d2b] bg-[#0d2217]/40 text-center overflow-hidden">
-          <p className="text-[9px] font-medium leading-none tracking-tight text-[#a8c4b4] whitespace-nowrap overflow-hidden text-ellipsis">
-            Degree › Skills › Projects › Opportunities › Roadmap
+        <div className="px-1.5 py-2 border-t border-[#1b3d2b] bg-[#0d2217]/40 text-center overflow-hidden">
+          <p className="text-[10px] font-semibold leading-tight tracking-tight text-[#a8c4b4] whitespace-nowrap overflow-hidden text-ellipsis">
+            Degree · Skills · Projects · Ops · Roadmap
           </p>
         </div>
       </aside>

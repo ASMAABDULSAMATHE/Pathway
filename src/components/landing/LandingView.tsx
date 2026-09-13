@@ -28,7 +28,7 @@ export const LandingView: React.FC = () => {
             Pathway
           </h1>
 
-          <p className="text-sm sm:text-base font-semibold text-emerald-800">
+          <p className="text-sm sm:text-base font-semibold text-emerald-800 whitespace-nowrap">
             Your degree. Your skills. Your next step.
           </p>
 

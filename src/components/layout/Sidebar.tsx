@@ -60,7 +60,7 @@ export const Sidebar: React.FC<{ isOpenMobile: boolean; setIsOpenMobile: (open: 
         }`}
       >
         {/* Brand Header */}
-        <div className="p-5 border-b border-[#1b3d2b] flex items-center justify-between">
+        <div className="p-5 border-b border-[#1b3d2b]">
           <button
             onClick={() => {
               if (caseState === 'blank') {
@@ -70,21 +70,19 @@ export const Sidebar: React.FC<{ isOpenMobile: boolean; setIsOpenMobile: (open: 
               }
               setIsOpenMobile(false);
             }}
-            className="flex items-center gap-3 text-left group cursor-pointer"
+            className="flex flex-col items-start text-left group cursor-pointer w-full"
           >
-            <div className="w-8 h-8 rounded-xl bg-emerald-800 text-white flex items-center justify-center font-bold shadow-xs border border-emerald-600/40 group-hover:bg-emerald-700 transition-colors">
-              <GraduationCap className="w-4 h-4 text-emerald-100" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-bold text-white text-base tracking-tight font-serif">
-                  Pathway
-                </span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-xl bg-emerald-800 text-white flex items-center justify-center font-bold shadow-xs border border-emerald-600/40 group-hover:bg-emerald-700 transition-colors shrink-0">
+                <GraduationCap className="w-4 h-4 text-emerald-100" />
               </div>
-              <p className="text-[10px] text-[#8fa89b] font-medium leading-tight">
-                Your degree. Your skills. Your next step.
-              </p>
+              <span className="font-bold text-white text-base tracking-tight font-serif">
+                Pathway
+              </span>
             </div>
+            <p className="text-[9px] text-[#8fa89b] font-medium leading-tight tracking-tight mt-1.5 whitespace-nowrap overflow-hidden text-ellipsis w-full">
+              Your degree. Your skills. Your next step.
+            </p>
           </button>
         </div>
 
@@ -161,7 +159,7 @@ export const Sidebar: React.FC<{ isOpenMobile: boolean; setIsOpenMobile: (open: 
         {/* Footer info */}
         <div className="px-1.5 py-2 border-t border-[#1b3d2b] bg-[#0d2217]/40 text-center overflow-hidden">
           <p className="text-[10px] font-semibold leading-tight tracking-tight text-[#a8c4b4] whitespace-nowrap overflow-hidden text-ellipsis">
-            Degree · Skills · Projects · Ops · Roadmap
+            Degree · Skills · Projects · Opps · Roadmap
           </p>
         </div>
       </aside>

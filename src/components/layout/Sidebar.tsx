@@ -55,7 +55,7 @@ export const Sidebar: React.FC<{ isOpenMobile: boolean; setIsOpenMobile: (open: 
       )}
 
       <aside
-        className={`fixed md:static inset-y-0 left-0 z-40 w-60 bg-[#122b1e] text-[#d6e5dc] flex flex-col border-r border-[#1e4431] transition-transform duration-200 ease-in-out md:translate-x-0 ${
+        className={`fixed md:static inset-y-0 left-0 z-40 w-64 bg-[#122b1e] text-[#d6e5dc] flex flex-col border-r border-[#1e4431] transition-transform duration-200 ease-in-out md:translate-x-0 ${
           isOpenMobile ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -80,7 +80,7 @@ export const Sidebar: React.FC<{ isOpenMobile: boolean; setIsOpenMobile: (open: 
                 Pathway
               </span>
             </div>
-            <p className="text-[9px] text-[#8fa89b] font-medium leading-tight tracking-tight mt-1.5 whitespace-nowrap overflow-hidden text-ellipsis w-full">
+            <p className="text-[11px] text-[#8fa89b] font-medium leading-tight tracking-tight mt-1.5 whitespace-nowrap overflow-hidden text-ellipsis w-full">
               Your degree. Your skills. Your next step.
             </p>
           </button>
@@ -158,7 +158,7 @@ export const Sidebar: React.FC<{ isOpenMobile: boolean; setIsOpenMobile: (open: 
 
         {/* Footer info */}
         <div className="px-1.5 py-2 border-t border-[#1b3d2b] bg-[#0d2217]/40 text-center overflow-hidden">
-          <p className="text-[10px] font-semibold leading-tight tracking-tight text-[#a8c4b4] whitespace-nowrap overflow-hidden text-ellipsis">
+          <p className="text-[11px] font-medium leading-tight tracking-tight text-[#a8c4b4] whitespace-nowrap overflow-hidden text-ellipsis">
             Degree · Skills · Projects · Opps · Roadmap
           </p>
         </div>

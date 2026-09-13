@@ -1,4 +1,5 @@
-import React, { JSX } from 'react';
+/// <reference types="react/jsx-runtime" />
+import React from 'react';
 import {
   GraduationCap,
   ArrowRight,

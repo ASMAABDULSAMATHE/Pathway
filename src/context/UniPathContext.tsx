@@ -196,7 +196,7 @@ export const UniPathProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setStudent(EMPTY_STUDENT);
     setCaseState('blank');
     setActiveTab('landing');
-    addToast('Exited demo case. Returned to blank starting screen.', 'info');
+    addToast('Exited demo. Back to a fresh start.', 'info');
   };
 
   const createCustomPathway = (data: {

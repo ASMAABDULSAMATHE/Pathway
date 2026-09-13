@@ -68,7 +68,7 @@ export const Header: React.FC<{ onToggleMobileMenu: () => void }> = ({ onToggleM
           <div className="flex items-center gap-2 text-xs text-[#526e60]">
             <span>Pathway</span>
             <span>•</span>
-            <span className="italic">Blank Case</span>
+            <span className="italic">No Pathway Yet</span>
           </div>
         )}
       </div>

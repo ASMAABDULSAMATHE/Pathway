@@ -98,7 +98,7 @@ export const Sidebar: React.FC<{ isOpenMobile: boolean; setIsOpenMobile: (open: 
               <button
                 onClick={exitDemoCase}
                 className="text-[10px] font-semibold text-[#a3beae] hover:text-white flex items-center gap-1 hover:underline cursor-pointer"
-                title="Return to blank case"
+                title="Exit demo and start fresh"
               >
                 <LogOut className="w-3 h-3" />
                 Exit Demo

@@ -14,6 +14,12 @@ import {
 } from 'lucide-react';
 import { useUniPath } from '../../context/UniPathContext';
 
+const PROFICIENCY_DEFAULT: Record<string, number> = {
+  Developing: 40,
+  'Working knowledge': 65,
+  Strong: 85,
+};
+
 export const SkillsView: React.FC = () => {
   const {
     student,
@@ -167,7 +173,7 @@ export const SkillsView: React.FC = () => {
 
           <div className="space-y-4">
             {skillsList.technical.map((sk) => {
-              const currentLvl = student.skills[sk.name] || sk.level;
+              const currentLvl = student.skills[sk.name] ?? PROFICIENCY_DEFAULT[sk.proficiency] ?? 50;
               const isExpanded = expandedSkillName === sk.name;
 
               return (
@@ -177,7 +183,7 @@ export const SkillsView: React.FC = () => {
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-bold text-[#11291d]">{sk.name}</span>
                         <span className="text-[11px] px-2 py-0.5 rounded-md bg-[#eef7f1] text-[#143825] font-semibold">
-                          {sk.evidence}
+                          {sk.source}
                         </span>
                       </div>
                       <p className="text-xs text-[#526e60]">{sk.desc}</p>
@@ -245,7 +251,7 @@ export const SkillsView: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {skillsList.professional.map((sk) => {
-              const currentLvl = student.skills[sk.name] || sk.level;
+              const currentLvl = student.skills[sk.name] ?? PROFICIENCY_DEFAULT[sk.proficiency] ?? 50;
               return (
                 <div key={sk.name} className="p-3.5 rounded-xl border border-[#edf2ee] space-y-2 bg-[#fbfdfb]">
                   <div className="flex items-center justify-between">
@@ -279,7 +285,7 @@ export const SkillsView: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {skillsList.domain.map((sk) => {
-              const currentLvl = student.skills[sk.name] || sk.level;
+              const currentLvl = student.skills[sk.name] ?? PROFICIENCY_DEFAULT[sk.proficiency] ?? 50;
               return (
                 <div key={sk.name} className="p-3.5 rounded-xl border border-[#edf2ee] space-y-2 bg-[#fbfdfb]">
                   <div className="flex items-center justify-between">

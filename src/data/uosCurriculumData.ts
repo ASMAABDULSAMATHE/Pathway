@@ -13,6 +13,7 @@ export interface GroupedSkillItem {
   name: string;
   proficiency: SkillProficiencyLevel;
   source: string;
+  desc?: string;
 }
 
 export interface CuratedOpportunityItem {

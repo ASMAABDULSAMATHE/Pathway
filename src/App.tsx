@@ -13,7 +13,6 @@ import { ProblemSolutionView } from './components/presentation/ProblemSolutionVi
 
 // Modals & Feedback
 import { SetupPathwayModal } from './components/onboarding/SetupPathwayModal';
-import { OnboardingModal } from './components/onboarding/OnboardingModal';
 import { CourseModal } from './components/common/CourseModal';
 import { OpportunityModal } from './components/common/OpportunityModal';
 import { ProjectModal } from './components/common/ProjectModal';
@@ -111,9 +110,6 @@ const AppContent: React.FC = () => {
 
       {/* Pathway Setup Modal (3-step UOS College & Major Onboarding) */}
       <SetupPathwayModal />
-
-      {/* Legacy/Extra Onboarding if requested */}
-      <OnboardingModal />
 
       {/* Progressive Disclosure Course Details Modal */}
       <CourseModal

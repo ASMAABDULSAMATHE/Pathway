@@ -25,7 +25,7 @@ import { checkPrerequisites } from '../services/recommendationEngine';
 interface Toast {
   id: string;
   message: string;
-  type: 'success' | 'info' | 'warning';
+  type: 'success' | 'info' | 'warning' | 'error';
 }
 
 interface UniPathContextType {
@@ -47,7 +47,7 @@ interface UniPathContextType {
   searchQuery: string;
   setSearchQuery: (q: string) => void;
   toasts: Toast[];
-  addToast: (message: string, type?: 'success' | 'info' | 'warning') => void;
+  addToast: (message: string, type?: 'success' | 'info' | 'warning' | 'error') => void;
   removeToast: (id: string) => void;
 
   // Case management
@@ -57,6 +57,7 @@ interface UniPathContextType {
     name: string;
     university: string;
     major: string;
+    college?: string;
     yearOfStudy: number;
     interests: string[];
     workingToward: string;
@@ -134,7 +135,7 @@ export const UniPathProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [toasts, setToasts] = useState<Toast[]>([]);
 
-  const addToast = (message: string, type: 'success' | 'info' | 'warning' = 'success') => {
+  const addToast = (message: string, type: 'success' | 'info' | 'warning' | 'error' = 'success') => {
     const id = Date.now().toString() + Math.random().toString(36).substring(2, 5);
     setToasts((prev) => [...prev, { id, message, type }]);
     setTimeout(() => {
@@ -202,13 +203,14 @@ export const UniPathProvider: React.FC<{ children: React.ReactNode }> = ({ child
     name: string;
     university: string;
     major: string;
+    college?: string;
     yearOfStudy: number;
     interests: string[];
     workingToward: string;
     careerGoal?: string;
   }) => {
-    // Resolve discipline for the student's chosen major
-    const targetExp = getDisciplineExperience(data.major, data.university);
+    // Resolve discipline for the student's chosen major (and college, when known)
+    const targetExp = getDisciplineExperience(data.major, data.college);
 
     const matchedRole =
       targetExp.allTargetRoles.find(
@@ -363,7 +365,8 @@ export const UniPathProvider: React.FC<{ children: React.ReactNode }> = ({ child
         const updatedTasks = p.tasks.map((t) => (t.id === taskId ? { ...t, completed: !t.completed } : t));
         const completedCount = updatedTasks.filter((t) => t.completed).length;
         const calcProgress = Math.round((completedCount / updatedTasks.length) * 100);
-        const newStatus = calcProgress === 100 ? 'completed' : calcProgress > 0 ? 'in_progress' : 'planning';
+        const newStatus: 'planning' | 'in_progress' | 'completed' =
+          calcProgress === 100 ? 'completed' : calcProgress > 0 ? 'in_progress' : 'planning';
         return {
           ...p,
           tasks: updatedTasks,
@@ -379,7 +382,8 @@ export const UniPathProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setStudent((prev) => {
       const updatedProjects = prev.trackedProjects.map((p) => {
         if (p.id !== projectId) return p;
-        const newStatus = progress === 100 ? 'completed' : progress > 0 ? 'in_progress' : 'planning';
+        const newStatus: 'planning' | 'in_progress' | 'completed' =
+          progress === 100 ? 'completed' : progress > 0 ? 'in_progress' : 'planning';
         return {
           ...p,
           progress,

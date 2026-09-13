@@ -13,6 +13,7 @@ import { ProblemSolutionView } from './components/presentation/ProblemSolutionVi
 
 // Modals & Feedback
 import { SetupPathwayModal } from './components/onboarding/SetupPathwayModal';
+import { OnboardingModal } from './components/onboarding/OnboardingModal';
 import { CourseModal } from './components/common/CourseModal';
 import { OpportunityModal } from './components/common/OpportunityModal';
 import { ProjectModal } from './components/common/ProjectModal';
@@ -29,8 +30,6 @@ const AppContent: React.FC = () => {
     setSelectedOpportunity,
     selectedProject,
     setSelectedProject,
-    isOnboardingOpen,
-    setIsOnboardingOpen,
   } = useUniPath();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -114,10 +113,7 @@ const AppContent: React.FC = () => {
       <SetupPathwayModal />
 
       {/* Legacy/Extra Onboarding if requested */}
-      <OnboardingModal
-        isOpen={isOnboardingOpen}
-        onClose={() => setIsOnboardingOpen(false)}
-      />
+      <OnboardingModal />
 
       {/* Progressive Disclosure Course Details Modal */}
       <CourseModal
